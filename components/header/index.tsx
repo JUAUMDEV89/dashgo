@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Flex, Text, Input, Icon, Box, HStack, Avatar, AvatarBadge } from '@chakra-ui/react';
 
 import { RiNotification2Line, RiSearch2Line, RiUserAddLine } from 'react-icons/ri';
 
 export function Header(){
+
     return(
       <Flex
          as="header"
@@ -75,7 +77,7 @@ export function Header(){
             <Text color="gray.300" fontSize="small">jlrmd89@gmail.com</Text> 
           </Box>
 
-          <Avatar name="João Luis" src="www.github.com/JUAUMDEV89.png" cursor="pointer">
+          <Avatar src="http://www.github.com/JUAUMDEV89.png" cursor="pointer">
             <AvatarBadge borderColor="papayawhip" bg="green.600" boxSize="1.25em">6</AvatarBadge>
           </Avatar>
         </Flex>
