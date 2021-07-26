@@ -1,29 +1,7 @@
 import { Flex, Button, Stack, FormLabel, FormControl } from '@chakra-ui/react';
-import { useState } from 'react';
 import { Input } from '../components/form/input';
 
-import { auth } from '../services/firebase';
-
 export default function SignIn() {
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const { signInWithEmailAndPassword } = auth;
-
-  function handleSignInWithEmailAndPassword(){
-    signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      
-      console.log(user);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
-  }
 
   return (
     <Flex
@@ -46,15 +24,11 @@ export default function SignIn() {
         <Input
           label="E-mail"
           name="email"
-          value={email}
-          onChange={e=>setEmail(e.target.value)}
         />
 
         <Input
           label="password"
           name="password"
-          value={password}
-          onChange={e=>setPassword(e.target.value)}
         />
 
         <Button 
@@ -63,7 +37,6 @@ export default function SignIn() {
           size="lg"
           mt={8}
           w="100%"
-          onClick={()=>handleSignInWithEmailAndPassword()}
         >Entrar</Button>
         
         </Stack>
