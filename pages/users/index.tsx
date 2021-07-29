@@ -62,7 +62,8 @@ export default function UserList(){
                           Editar Usuario
                       </Th>
                   </Tr>
-                  <Tbody>
+              </Thead>
+              <Tbody>
                       <Tr w="100%">
                           <Td px="6">
                             <Checkbox colorScheme="pink" />
@@ -90,7 +91,6 @@ export default function UserList(){
                           </Td>             
                       </Tr>
                   </Tbody>
-              </Thead>
           </Table>  
               </Box>
           </Flex>
