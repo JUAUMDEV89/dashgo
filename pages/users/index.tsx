@@ -11,12 +11,18 @@ import { Box
     ,Tbody
     ,Td
     ,Text} from "@chakra-ui/react";
-import { RiAddLine } from "react-icons/ri";
+import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import { Header } from '../../components/header';
 import { SideBar } from "../../components/sidebar";
 
 export default function UserList(){
+
+    const user = {
+        email: 'jlrmd89@gmail.com',
+        username: 'João luis'
+    }
+
     return(
       <Box>
           <Header />
@@ -52,21 +58,36 @@ export default function UserList(){
                       <Th>
                           Data de Cadastro
                       </Th>
+                      <Th>
+                          Editar Usuario
+                      </Th>
                   </Tr>
-                  <Tbody w="100%">
-                      <Tr>
+                  <Tbody>
+                      <Tr w="100%">
                           <Td px="6">
                             <Checkbox colorScheme="pink" />
                           </Td>
                           <Td>
                             <Box>
-                                <Text fontWeight="bold">João Luis</Text>
-                                <Text fontSize="sm" color="gray.300">jlrmd89@gmail.com</Text>
+                                <Text fontWeight="bold">{ user.username }</Text>
+                                <Text fontSize="sm" color="gray.300">{ user.email }</Text>
                             </Box>
                           </Td>      
                           <Td>
                              26 de julho de 2021 
-                          </Td>              
+                          </Td> 
+                          <Td>
+                          <Button
+                             as="a"
+                             size="sm"
+                             fontSize="sm"
+                             colorScheme="pink"
+                             leftIcon={<Icon as={RiPencilLine} />}
+                             cursor="pointer"
+                          >
+                          Editar
+                          </Button> 
+                          </Td>             
                       </Tr>
                   </Tbody>
               </Thead>
