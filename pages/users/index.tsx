@@ -15,6 +15,7 @@ import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import { Header } from '../../components/header';
 import { SideBar } from "../../components/sidebar";
+import { User } from "../../components/user";
 
 export default function UserList(){
 
@@ -63,34 +64,13 @@ export default function UserList(){
                       </Th>
                   </Tr>
               </Thead>
+
               <Tbody>
-                      <Tr w="100%">
-                          <Td px="6">
-                            <Checkbox colorScheme="pink" />
-                          </Td>
-                          <Td>
-                            <Box>
-                                <Text fontWeight="bold">{ user.username }</Text>
-                                <Text fontSize="sm" color="gray.300">{ user.email }</Text>
-                            </Box>
-                          </Td>      
-                          <Td>
-                             26 de julho de 2021 
-                          </Td> 
-                          <Td>
-                          <Button
-                             as="a"
-                             size="sm"
-                             fontSize="sm"
-                             colorScheme="pink"
-                             leftIcon={<Icon as={RiPencilLine} />}
-                             cursor="pointer"
-                          >
-                          Editar
-                          </Button> 
-                          </Td>             
-                      </Tr>
-                  </Tbody>
+                <User />
+                <User />
+                <User />
+                <User />
+              </Tbody>
           </Table>  
               </Box>
           </Flex>
