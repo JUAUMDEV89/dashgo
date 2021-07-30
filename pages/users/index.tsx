@@ -66,10 +66,10 @@ export default function UserList(){
               </Thead>
 
               <Tbody>
-                <User />
-                <User />
-                <User />
-                <User />
+                <User username="João Luis" email="jlrmd89@gmail.com" />
+                <User username="Maria Joaquina" email="mjoaquina765@gmail.com" />
+                <User username="Cirilo Roberto" email="ciril0@hotmail.com" />
+                <User username="josé paulo" email="zezinho876@gmail.com" />
               </Tbody>
           </Table>  
               </Box>
