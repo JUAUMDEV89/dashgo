@@ -16,6 +16,7 @@ import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from '../../components/header';
 import { SideBar } from "../../components/sidebar";
 import { User } from "../../components/user";
+import { Pagination } from '../../components/pagination';
 
 export default function UserList(){
 
@@ -72,6 +73,9 @@ export default function UserList(){
                 <User username="josé paulo" email="zezinho876@gmail.com" />
               </Tbody>
           </Table>  
+
+             <Pagination />
+
               </Box>
           </Flex>
       </Box>
