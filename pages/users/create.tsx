@@ -1,4 +1,5 @@
-import { Box, Flex, Heading, Stack, Button, Icon } from '@chakra-ui/react';
+import { useContext } from 'react';
+import { Box, Flex, Heading, VStack, Button, Icon } from '@chakra-ui/react';
 
 import { RiAddLine } from 'react-icons/ri';
 
@@ -7,7 +8,12 @@ import { SideBar } from '../../components/sidebar';
 
 import { Input } from '../../components/form/input';
 
+import { AuthContext } from '../../context/auth/authContext';
+
 export default function Create(){
+
+    const {  } = useContext(AuthContext);
+
     return(
         <Box>
         <Header />
@@ -18,9 +24,11 @@ export default function Create(){
 
             <Box flex="1" borderRadius={8} bg="gray.800" p="8">
               <Heading>Cadastro de Usuario</Heading>
-              <Stack spacing="6" mt="5">
+              <VStack spacing="6" mt="5">
                 <Input name="username" label="username"/>
-                <Input name="username" label="e-mail"/>
+                <Input name="emauil" label="e-mail"/>
+                <Input name="password" label="senha"/>
+                <Input name="username" label="confirmação de senha"/>
                 <Button
                         as="a"
                         size="sm"
@@ -33,7 +41,7 @@ export default function Create(){
                       >
                           Adicionar Usuario
                 </Button>
-              </Stack>
+              </VStack>
             </Box>
         </Flex>
     </Box>

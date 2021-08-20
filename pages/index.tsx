@@ -1,7 +1,18 @@
+import { useState, useContext } from 'react';
 import { Flex, Button, Stack, FormLabel, FormControl } from '@chakra-ui/react';
 import { Input } from '../components/form/input';
+import { AuthContext } from '../context/auth/authContext';
 
 export default function SignIn() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { SignIn } = useContext(AuthContext);
+
+  function handleSingInUser(){
+    SignIn(email, password);
+  }
 
   return (
     <Flex
@@ -24,14 +35,19 @@ export default function SignIn() {
         <Input
           label="E-mail"
           name="email"
+          value={email}
+          onChange={(e)=>setEmail(e.target.value)}
         />
 
         <Input
           label="password"
           name="password"
+          value={password}
+          onChange={(e)=>setPassword(e.target.value)}
         />
 
         <Button 
+          onClick={()=>handleSingInUser()}
           bg="pink.500"
           color="white"
           size="lg"
