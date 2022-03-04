@@ -2,13 +2,17 @@ import { Flex, Text, Input, Icon, Box, HStack, Avatar, AvatarBadge, useBreakpoin
 
 import { RiNotification2Line, RiSearch2Line, RiUserAddLine } from 'react-icons/ri';
 
+import {useSideBarContext} from '../../contexts/SideBarContext'
+
 export function Header() {
 
+  const { disclouser } = useSideBarContext();
+   
   const isWideVersion = useBreakpointValue({
     base: false,
     lg: true
   })
-
+ 
   return (
     <Flex
       as="header"
