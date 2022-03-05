@@ -1,6 +1,6 @@
-import { Flex, Text, Input, Icon, Box, HStack, Avatar, AvatarBadge, useBreakpointValue } from '@chakra-ui/react';
+import { Flex, Text, Input, Icon, Box, HStack, Avatar, AvatarBadge, useBreakpointValue,  IconButton } from '@chakra-ui/react';
 
-import { RiNotification2Line, RiSearch2Line, RiUserAddLine } from 'react-icons/ri';
+import { RiNotification2Line, RiSearch2Line, RiUserAddLine, RiMenuLine } from 'react-icons/ri';
 
 import {useSideBarContext} from '../../contexts/SideBarContext'
 
@@ -24,6 +24,22 @@ export function Header() {
       px="6"
       align="center"
     >
+
+      {
+          !isWideVersion && (
+              <IconButton
+                aria-label='Open Navigation'
+                icon={<Icon as={RiMenuLine} />}
+                fontSize="24"
+                variant={'unstyled'}
+                onClick={disclouser.onOpen}
+                mr="2"
+              >
+
+              </IconButton>
+          )
+      }
+
       <Text
         fontSize={["2xl", "3xl", "4xl"]}
         fontWeight="bold"
