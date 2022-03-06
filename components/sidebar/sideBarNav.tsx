@@ -7,11 +7,11 @@ export  function SideBarNav(){
         <Box>
             <Text fontWeight="bold" color="gray.400" fontSize="small">GERAL</Text>
             <Stack spacing="4" mt="8" align="stretch">
-              <Link alignItems="center" display="flex"> 
+              <Link alignItems="center" display="flex" href="/dashboard"> 
                  <Icon as={RiDashboard3Line} fontSize="20" />
                  <Text ml="4" fontWeight="medium">Dashboard</Text>
               </Link>  
-              <Link alignItems="center" display="flex"> 
+              <Link alignItems="center" display="flex" href="/users"> 
                  <Icon as={RiContactsLine} fontSize="20" />
                  <Text ml="4" fontWeight="medium">Usuarios</Text>
               </Link>  

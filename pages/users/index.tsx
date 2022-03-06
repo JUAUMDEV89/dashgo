@@ -20,6 +20,8 @@ import { SideBar } from "../../components/sidebar";
 import { User } from "../../components/user";
 import { Pagination } from '../../components/pagination';
 
+import Link from 'next/link';
+
 export default function UserList(){
 
     const user = {
@@ -44,6 +46,7 @@ export default function UserList(){
                   <Flex mb="8" justify="space-between" align="center">
                       <Heading size="lg" fontWeight="normal">Usuários</Heading>
 
+                      <Link href="/users/create">
                       <Button
                         as="a"
                         size="sm"
@@ -54,6 +57,7 @@ export default function UserList(){
                       >
                           Criar Novo
                       </Button>
+                      </Link>
                   </Flex>
                   <Table>
               <Thead>
