@@ -10,7 +10,9 @@ import { Box
     ,Checkbox
     ,Tbody
     ,Td
-    ,Text} from "@chakra-ui/react";
+    ,Text
+    ,useBreakpointValue
+} from "@chakra-ui/react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import { Header } from '../../components/header';
@@ -24,6 +26,11 @@ export default function UserList(){
         email: 'jlrmd89@gmail.com',
         username: 'João luis'
     }
+
+    const isWideVersion = useBreakpointValue({
+        base: false,
+        lg: true
+    });
 
     return(
       <Box>
@@ -57,9 +64,7 @@ export default function UserList(){
                       <Th>
                           Usuario
                       </Th>
-                      <Th>
-                          Data de Cadastro
-                      </Th>
+                          { isWideVersion && <Th>Data de Cadastro</Th>  }                     
                       <Th>
                           Editar Usuario
                       </Th>
@@ -76,7 +81,7 @@ export default function UserList(){
 
              <Pagination />
 
-              </Box>
+             </Box>
           </Flex>
       </Box>
 
