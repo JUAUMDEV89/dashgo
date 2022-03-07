@@ -14,6 +14,7 @@
     "@emotion/styled": "11",
     "@hookform/resolvers": "^2.8.8",
     "apexcharts": "^3.27.2",
+    "faker": "^6.6.6",
     "firebase": "^8.7.1",
     "framer-motion": "4",
     "next": "11.0.1",
@@ -25,6 +26,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@types/faker": "^6.6.9",
     "@types/react": "^17.0.14",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
