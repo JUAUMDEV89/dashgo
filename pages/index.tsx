@@ -61,6 +61,7 @@ export default function SignIn() {
         />
 
         <Button 
+        type='submit'
           bg="pink.500"
           color="white"
           size="lg"
