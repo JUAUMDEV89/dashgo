@@ -1,5 +1,4 @@
 import { createServer, Factory, Model } from "miragejs"
-import faker from 'faker';
 
 type User = {
     name: string;
@@ -19,8 +18,8 @@ export function MakeServer() {
             name(i: number){
                 return `User ${i + 1}`
             },
-            email(){
-                return faker.internet.email().toLowerCase();
+            email(i: number){
+                return `Email ${i + 1}`
             },
             createdAt(){
                 return faker.date.recent(10);
@@ -36,7 +35,7 @@ export function MakeServer() {
       this.namespace = 'api';
       this.timing = 750;
 
-      this.get("/users");
+      this.get("/users")
       this.post("/users");
 
       this.namespace = '';
