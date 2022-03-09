@@ -22,22 +22,13 @@ import { SideBar } from "../../components/sidebar";
 import { User } from "../../components/user";
 import { Pagination } from '../../components/pagination';
 
-import { useQuery } from 'react-query';
+import { useUsers } from '../../hooks/useUsers';
 
 import Link from 'next/link';
 
 export default function UserList() {
-
-    const { isLoading, error, data } = useQuery('repoData', async () => {
-       const response = await fetch('https://localhost:3000/users');
        
-      console.log(response.data)
-    })
-
-    const user = {
-        email: 'jlrmd89@gmail.com',
-        username: 'João luis'
-    }
+    const { isLoading, error, data, isFetching } = useUsers();
 
     const isWideVersion = useBreakpointValue({
         base: false,
@@ -54,7 +45,11 @@ export default function UserList() {
 
                 <Box flex="1" borderRadius={8} bg="gray.800" p="8">
                     <Flex mb="8" justify="space-between" align="center">
-                        <Heading size="lg" fontWeight="normal">Usuários</Heading>
+                        <Heading size="lg" fontWeight="normal">
+                            Usuários
+
+                            { !isLoading && isFetching && <Spinner color="gray.500" sixze="sm" mr="5" /> }
+                        </Heading>
 
                         <Link href="/users/create">
                             <Button
@@ -88,7 +83,7 @@ export default function UserList() {
                         <Tbody>
                             {
                                 isLoading ? (
-                                   <Spinner></Spinner>
+                                    <Spinner color="gray.500" sixze="sm"  /> 
                                 ) : error ? (
                                    <h3>Erro ao pegar os dados.</h3>
                                 ) : (
