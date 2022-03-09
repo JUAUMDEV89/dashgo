@@ -8,7 +8,7 @@ interface UserProps{
    date: string; 
 }
 
-export function User({ username, email, date }) {
+export function User({ username, email, date }: UserProps) {
 
   const isWideVersion = useBreakpointValue({
     base: false,

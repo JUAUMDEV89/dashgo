@@ -1,7 +1,5 @@
 import { createServer, Factory, Model } from "miragejs"
 
-import faker from 'faker'
-
 type User = {
     name: string;
     email: string;
@@ -21,29 +19,46 @@ export function MakeServer() {
                 return `User ${i + 1}`
             },
             email(i: number){
-                return `Email ${i + 1}`
+                return `emailuser ${i + 1}@gmail.com`
             },
             createdAt(){
-                return faker.date.recent(10);
+                return new Date()
             }
         })
     },
 
     seeds(server){
-      server.createList('user', 200);
+      server.createList('user', 10);
     },
 
     routes() {
       this.namespace = 'api';
       this.timing = 750;
 
-      this.get("/users")
+      this.get("/users", (schema, request) => {
+        const { page = 1, per_page = 10 } = request.queryParams;
+        
+        const total = schema.all('user').length;
+
+        const start = (Number(page) * Number(per_page));
+        const end = start + Number(per_page);
+    
+        const users = this.serialize(schema.all('user'))
+          .user.slice(start, end);
+
+        return new Response(
+          200,
+          { 'x-total-count': total },
+          { users }
+        )
+       });
+
       this.post("/users");
 
       this.namespace = '';
       this.passthrough();
     }
-  })
+  });
 
   return server;
 }
