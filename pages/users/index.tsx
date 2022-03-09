@@ -28,7 +28,7 @@ import Link from 'next/link';
 
 export default function UserList() {
        
-    const { isLoading, error, data, isFetching } = useUsers();
+    const { isLoading, error, isFetching, data } = useUsers();
 
     const isWideVersion = useBreakpointValue({
         base: false,
@@ -87,7 +87,9 @@ export default function UserList() {
                                 ) : error ? (
                                    <h3>Erro ao pegar os dados.</h3>
                                 ) : (
-                                    <User username="João Luis" email="jlrmd89@gmail.com" />
+                                    data.map(user=>(
+                                        <User key={user.id} username={user.name} email={user.email} date={user.created_at} />
+                                    ))
                                 )
                             }
                         </Tbody>

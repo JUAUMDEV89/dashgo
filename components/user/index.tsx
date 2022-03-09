@@ -1,9 +1,14 @@
-
 import { Tr, Td, Checkbox, Box, Text, Button, Icon, useBreakpointValue } from '@chakra-ui/react';
 
 import { RiPencilLine } from 'react-icons/ri';
 
-export function User({ username, email }) {
+interface UserProps{
+   username: string;
+   email: string;
+   date: string; 
+}
+
+export function User({ username, email, date }) {
 
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -22,7 +27,7 @@ export function User({ username, email }) {
         </Box>
       </Td>
       {isWideVersion && <Td>
-        26 de julho de 2021
+        {date}
       </Td>}
       <Td>
         <Button
